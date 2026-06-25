@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gd8faljfCGY=",
+  "success": true,
+  "projectFilePath": "D:\\Enterprise-Banking-System\\Source\\API\\AuditAPI.Api\\AuditAPI.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\deves\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.14\\microsoft.aspnetcore.openapi.9.0.14.nupkg.sha512",
+    "C:\\Users\\deves\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
