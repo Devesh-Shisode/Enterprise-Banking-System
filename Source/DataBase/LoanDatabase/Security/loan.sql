@@ -1,0 +1,2 @@
+CREATE SCHEMA [loan] AUTHORIZATION [dbo];
+GO

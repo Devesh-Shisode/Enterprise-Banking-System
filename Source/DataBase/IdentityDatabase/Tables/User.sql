@@ -1,38 +1,26 @@
 CREATE TABLE [auth].[User]
 (
     [UserId] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWSEQUENTIALID(),
-
     [UserName] NVARCHAR(50) NOT NULL,
-
     [Email] NVARCHAR(256) NOT NULL,
-
     [PasswordHash] NVARCHAR(500) NOT NULL,
-
     [PhoneNumber] NVARCHAR(20) NULL,
-
     [IsEmailVerified] BIT NOT NULL DEFAULT 0,
-
     [IsPhoneVerified] BIT NOT NULL DEFAULT 0,
-
     [FailedLoginAttempts] INT NOT NULL DEFAULT 0,
-
     [LockoutEnd] DATETIME2(7) NULL,
-
     [LastLoginDate] DATETIME2(7) NULL,
-
     [StatusId] INT NOT NULL,
-
     [CreatedBy] UNIQUEIDENTIFIER NULL,
-
     [CreatedDate] DATETIME2(7) NOT NULL DEFAULT SYSUTCDATETIME(),
-
     [UpdatedBy] UNIQUEIDENTIFIER NULL,
-
     [UpdatedDate] DATETIME2(7) NULL,
-
     [IsActive] BIT NOT NULL DEFAULT 1,
-
     [IsDeleted] BIT NOT NULL DEFAULT 0,
+    [RowVersion] ROWVERSION NOT NULL,
 
-    [RowVersion] ROWVERSION NOT NULL
-)
+    CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([UserId] ASC),
+    CONSTRAINT [UQ_User_UserName] UNIQUE NONCLUSTERED ([UserName] ASC),
+    CONSTRAINT [UQ_User_Email] UNIQUE NONCLUSTERED ([Email] ASC)
+);
+GO

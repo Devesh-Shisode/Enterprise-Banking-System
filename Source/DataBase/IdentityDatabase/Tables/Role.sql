@@ -1,0 +1,11 @@
+CREATE TABLE [auth].[Role]
+(
+    [RoleId] INT IDENTITY(1,1) NOT NULL,
+    [RoleName] NVARCHAR(50) NOT NULL,
+    [Description] NVARCHAR(250) NULL,
+    [IsActive] BIT NOT NULL DEFAULT 1,
+
+    CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED ([RoleId] ASC),
+    CONSTRAINT [UQ_Role_RoleName] UNIQUE NONCLUSTERED ([RoleName] ASC)
+);
+GO

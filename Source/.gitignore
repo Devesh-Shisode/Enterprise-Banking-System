@@ -1,0 +1,28 @@
+# Visual Studio Cache & User Files
+.vs/
+*.suo
+*.user
+*.userprefs
+*.dbmdl
+*.jfm
+*.suo
+*.useroptions
+*.rsuser
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.dacpac
+*.dll
+*.pdb
+*.exe
+*.sqlproj.AssemblyReference.cache
+*.FileListAbsolute.txt
+*.publish.sql
+DeploymentReport*.txt
+
+# OS metadata
+.DS_Store
+Thumbs.db

@@ -56,5 +56,40 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Security" />
+    <Folder Include="Tables" />
+    <Folder Include="Views" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Functions" />
+    <Folder Include="Synonyms" />
+    <Folder Include="Triggers" />
+    <Folder Include="Sequences" />
+    <Folder Include="User Defined Types" />
+    <Folder Include="PreDeployment" />
+    <Folder Include="PostDeployment" />
+    <Folder Include="Scripts" />
+    <Folder Include="Static Data" />
+    <Folder Include="Scripts\MigrationScripts" />
+    <Folder Include="Scripts\UtilityScripts" />
+    <Folder Include="Scripts\SeedData" />
+    <Folder Include="PublishProfiles" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\User.sql" />
+    <Build Include="Tables\Role.sql" />
+    <Build Include="Tables\Permission.sql" />
+    <Build Include="Tables\UserRole.sql" />
+    <Build Include="Views\vwActiveUsers.sql" />
+    <Build Include="Views\vwUserRoleSummary.sql" />
+    <Build Include="Views\vwLockedUsers.sql" />
+    <Build Include="Stored Procedures\usp_User_Create.sql" />
+    <Build Include="Stored Procedures\usp_User_Login.sql" />
+    <Build Include="Stored Procedures\usp_User_ResetPassword.sql" />
+    <Build Include="Stored Procedures\usp_User_Search.sql" />
+    <Build Include="Functions\fn_GetUserRoles.sql" />
+    <Build Include="Functions\fn_GetPasswordExpiry.sql" />
+    <Build Include="Triggers\trg_User_Audit.sql" />
+    <Build Include="Triggers\trg_User_Delete.sql" />
+    <Build Include="Security\auth.sql" />
   </ItemGroup>
 </Project>

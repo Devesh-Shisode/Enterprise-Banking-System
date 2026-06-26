@@ -1,0 +1,13 @@
+CREATE TABLE [acc].[AccountLimit]
+(
+    [LimitId] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWSEQUENTIALID(),
+    [AccountId] UNIQUEIDENTIFIER NOT NULL,
+    [DailyTransferLimit] DECIMAL(18, 4) NOT NULL DEFAULT 50000.0000,
+    [DailyWithdrawalLimit] DECIMAL(18, 4) NOT NULL DEFAULT 25000.0000,
+    [TransactionLimit] DECIMAL(18, 4) NOT NULL DEFAULT 10000.0000,
+    [UpdatedDate] DATETIME2(7) NULL,
+
+    CONSTRAINT [PK_AccountLimit] PRIMARY KEY CLUSTERED ([LimitId] ASC),
+    CONSTRAINT [FK_AccountLimit_Account] FOREIGN KEY ([AccountId]) REFERENCES [acc].[Account] ([AccountId]) ON DELETE CASCADE
+);
+GO
