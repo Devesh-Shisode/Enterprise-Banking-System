@@ -21,11 +21,14 @@ public static class AuthEndpoints
 
         group.MapPost("/register", RegisterAsync)
             .WithName("Register")
+            .AllowAnonymous()
             .WithOpenApi();
 
         group.MapPost("/login", LoginAsync)
             .WithName("Login")
+            .AllowAnonymous()
             .WithOpenApi();
+
 
         group.MapPost("/reset-password", ResetPasswordAsync)
             .WithName("ResetPassword")

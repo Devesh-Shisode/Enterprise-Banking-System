@@ -48,7 +48,8 @@ public static class CustomerEndpoints
         HttpContext httpContext,
         ICustomerRepository repository)
     {
-        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value 
+                                  ?? httpContext.User.FindFirst("sub")?.Value;
         if (string.IsNullOrEmpty(currentUserIdClaim) || !Guid.TryParse(currentUserIdClaim, out var currentUserId))
         {
             return Results.Unauthorized();
@@ -91,7 +92,8 @@ public static class CustomerEndpoints
         HttpContext httpContext,
         ICustomerRepository repository)
     {
-        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value 
+                                  ?? httpContext.User.FindFirst("sub")?.Value;
         if (string.IsNullOrEmpty(currentUserIdClaim) || !Guid.TryParse(currentUserIdClaim, out var currentUserId))
         {
             return Results.Unauthorized();
@@ -144,7 +146,8 @@ public static class CustomerEndpoints
         HttpContext httpContext,
         ICustomerRepository repository)
     {
-        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value 
+                                  ?? httpContext.User.FindFirst("sub")?.Value;
         if (string.IsNullOrEmpty(currentUserIdClaim) || !Guid.TryParse(currentUserIdClaim, out var currentUserId))
         {
             return Results.Unauthorized();
@@ -189,7 +192,8 @@ public static class CustomerEndpoints
         HttpContext httpContext,
         ICustomerRepository repository)
     {
-        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value 
+                                  ?? httpContext.User.FindFirst("sub")?.Value;
         if (string.IsNullOrEmpty(currentUserIdClaim) || !Guid.TryParse(currentUserIdClaim, out var currentUserId))
         {
             return Results.Unauthorized();
@@ -229,7 +233,8 @@ public static class CustomerEndpoints
         HttpContext httpContext,
         ICustomerRepository repository)
     {
-        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUserIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value 
+                                  ?? httpContext.User.FindFirst("sub")?.Value;
         if (string.IsNullOrEmpty(currentUserIdClaim) || !Guid.TryParse(currentUserIdClaim, out var currentUserId))
         {
             return Results.Unauthorized();

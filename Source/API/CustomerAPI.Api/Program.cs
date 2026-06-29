@@ -49,7 +49,9 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = issuer,
         ValidAudience = audience,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
-        ClockSkew = TimeSpan.Zero
+        ClockSkew = TimeSpan.Zero,
+        NameClaimType = System.Security.Claims.ClaimTypes.NameIdentifier,
+        RoleClaimType = System.Security.Claims.ClaimTypes.Role
     };
 });
 
@@ -67,32 +69,15 @@ builder.Services.AddOpenApi(options =>
             In = Microsoft.OpenApi.Models.ParameterLocation.Header,
             Scheme = "bearer",
             BearerFormat = "JWT",
-            Description = "Enter your JWT token in the format: Bearer {your_token_here}"
+            Description = "Paste your JWT access token below (without 'Bearer ')."
         };
 
         document.Components ??= new Microsoft.OpenApi.Models.OpenApiComponents();
-        document.Components.SecuritySchemes.Add("Bearer", scheme);
-
-        var requirement = new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
-        {
-            {
-                new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-                {
-                    Reference = new Microsoft.OpenApi.Models.OpenApiReference
-                    {
-                        Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                        Id = "Bearer"
-                    }
-                },
-                Array.Empty<string>()
-            }
-        };
-
-        document.SecurityRequirements ??= new List<Microsoft.OpenApi.Models.OpenApiSecurityRequirement>();
-        document.SecurityRequirements.Add(requirement);
+        document.Components.SecuritySchemes["Bearer"] = scheme;
         return Task.CompletedTask;
     });
 });
+
 
 var app = builder.Build();
 
